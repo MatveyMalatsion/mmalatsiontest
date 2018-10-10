@@ -1,0 +1,22 @@
+### Headers settings
+company: MMalatsion
+
+### Xcode project settings
+project_name: Tinkoff Test
+xcodeproj_path: Tinkoff Test.xcodeproj
+
+### Code generation settings section
+# The main project target name
+project_target: Tinkoff Test
+
+# The file path for new modules
+project_file_path: VIPER
+
+# The Xcode group path to new modules
+project_group_path: VIPER
+
+### Templates
+templates:
+- {name: rviper_controller}
+- {name: mvvm_controller}
+- {name: swifty_viper}

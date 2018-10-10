@@ -3,18 +3,55 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00D31000685BDF67DF5F2F49 /* MainMapModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E87EA01556D5E1A321EB97 /* MainMapModuleInput.swift */; };
+		021A7112FEC8CBA3A3839ED6 /* MainMapViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7989AE2DAD2CB209320B56 /* MainMapViewOutput.swift */; };
+		113AE988B9BFDE87E8DE0AA5 /* MainMapInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C191F49DC88759BC327B7E0E /* MainMapInteractorInput.swift */; };
+		198048E260904F49E2DD25A7 /* MainMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18253C614388CE708A4532E /* MainMapPresenter.swift */; };
 		28940BC021692D26001AD581 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940BBF21692D26001AD581 /* AppDelegate.swift */; };
 		28940BC221692D26001AD581 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940BC121692D26001AD581 /* ViewController.swift */; };
 		28940BC521692D26001AD581 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28940BC321692D26001AD581 /* Main.storyboard */; };
 		28940BC721692D28001AD581 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28940BC621692D28001AD581 /* Assets.xcassets */; };
 		28940BCA21692D28001AD581 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28940BC821692D28001AD581 /* LaunchScreen.storyboard */; };
+		28940BD2216938CE001AD581 /* MainMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28940BD1216938CE001AD581 /* MainMapViewController.xib */; };
+		28940BD521693944001AD581 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28940BD421693944001AD581 /* MapKit.framework */; };
+		28940BD721693B81001AD581 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940BD621693B81001AD581 /* NetworkService.swift */; };
+		28940BD9216A7D9C001AD581 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940BD8216A7D9C001AD581 /* CoreDataManager.swift */; };
+		28940BDC216AA9C0001AD581 /* NetworkEntityRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940BDB216AA9C0001AD581 /* NetworkEntityRequestBuilder.swift */; };
+		28940BDF216AAA43001AD581 /* LocationPointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940BDE216AAA43001AD581 /* LocationPointProtocol.swift */; };
+		28940BE1216AAA66001AD581 /* LocatedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940BE0216AAA66001AD581 /* LocatedProtocol.swift */; };
+		28940BE3216AAA83001AD581 /* DepositionPointEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940BE2216AAA83001AD581 /* DepositionPointEntity.swift */; };
+		28940BE7216AAAFA001AD581 /* PartnerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940BE6216AAAFA001AD581 /* PartnerEntity.swift */; };
+		28940BEB216AAB7B001AD581 /* DepositionPointsStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940BEA216AAB7B001AD581 /* DepositionPointsStorageProtocol.swift */; };
+		28940BEE216AAC49001AD581 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28940BEC216AAC49001AD581 /* DataModel.xcdatamodeld */; };
+		28940C14216AB360001AD581 /* CDParentEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C10216AB360001AD581 /* CDParentEntity+CoreDataClass.swift */; };
+		28940C15216AB360001AD581 /* CDParentEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C11216AB360001AD581 /* CDParentEntity+CoreDataProperties.swift */; };
+		28940C16216AB360001AD581 /* CDDepositionPointEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C12216AB360001AD581 /* CDDepositionPointEntity+CoreDataClass.swift */; };
+		28940C17216AB360001AD581 /* CDDepositionPointEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C13216AB360001AD581 /* CDDepositionPointEntity+CoreDataProperties.swift */; };
+		28940C1B216B5FE2001AD581 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C1A216B5FE2001AD581 /* Reachability.swift */; };
+		28940C1D216B6313001AD581 /* ParentEntity+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C1C216B6313001AD581 /* ParentEntity+CoreData.swift */; };
+		28940C1F216B676B001AD581 /* CoreDataConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C1E216B676B001AD581 /* CoreDataConvertable.swift */; };
+		28940C22216B6797001AD581 /* DepositionPointEntity+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C21216B6797001AD581 /* DepositionPointEntity+CoreData.swift */; };
+		28940C24216B704D001AD581 /* LocalDepositionPointsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C23216B704D001AD581 /* LocalDepositionPointsStorage.swift */; };
+		28940C26216B7FD6001AD581 /* DepositionPointsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C25216B7FD6001AD581 /* DepositionPointsStorage.swift */; };
+		28940C29216BD83A001AD581 /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C28216BD83A001AD581 /* QuadTree.swift */; };
+		28940C2B216C96B6001AD581 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C2A216C96B6001AD581 /* ImageCacheManager.swift */; };
+		28AF5383216D5A08001B87CF /* ImagesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AF5382216D5A08001B87CF /* ImagesHelper.swift */; };
+		28AF5385216E25D4001B87CF /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AF5384216E25D4001B87CF /* MapPin.swift */; };
+		328DCBEC84235D29A881C8AE /* MainMapConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91ED8369D4703B6CF6358D2 /* MainMapConfigurator.swift */; };
+		3BC30EE5DCD2DC0CBAA0C601 /* MainMapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD4B15A3B7C4481956D4B94 /* MainMapInteractor.swift */; };
+		5BDBC48F2B8256F874FE47F3 /* MainMapRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173BEC3F3573EF2D01222D3 /* MainMapRouterInput.swift */; };
+		5E878D62A0D59900E22BE675 /* MainMapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E93B370217B39408A47084 /* MainMapRouter.swift */; };
+		DAFA63539AABA4FF031ECAE9 /* MainMapInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C5B4B79DF9416370E48AB0 /* MainMapInteractorOutput.swift */; };
+		ED3FD8DC3DD179E4A64D08FE /* MainMapViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB5F43B90E23929CEC221D4 /* MainMapViewInput.swift */; };
+		F245F0214329E30311C3165C /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACAA42BBD5371388B0F065B /* MainMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16E93B370217B39408A47084 /* MainMapRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainMapRouter.swift; sourceTree = "<group>"; };
 		28940BBC21692D26001AD581 /* Tinkoff Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tinkoff Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28940BBF21692D26001AD581 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28940BC121692D26001AD581 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +59,42 @@
 		28940BC621692D28001AD581 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28940BC921692D28001AD581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28940BCB21692D28001AD581 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28940BD1216938CE001AD581 /* MainMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMapViewController.xib; sourceTree = "<group>"; };
+		28940BD421693944001AD581 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		28940BD621693B81001AD581 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		28940BD8216A7D9C001AD581 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		28940BDB216AA9C0001AD581 /* NetworkEntityRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEntityRequestBuilder.swift; sourceTree = "<group>"; };
+		28940BDE216AAA43001AD581 /* LocationPointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPointProtocol.swift; sourceTree = "<group>"; };
+		28940BE0216AAA66001AD581 /* LocatedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocatedProtocol.swift; sourceTree = "<group>"; };
+		28940BE2216AAA83001AD581 /* DepositionPointEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositionPointEntity.swift; sourceTree = "<group>"; };
+		28940BE6216AAAFA001AD581 /* PartnerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerEntity.swift; sourceTree = "<group>"; };
+		28940BEA216AAB7B001AD581 /* DepositionPointsStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositionPointsStorageProtocol.swift; sourceTree = "<group>"; };
+		28940BED216AAC49001AD581 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		28940C10216AB360001AD581 /* CDParentEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDParentEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		28940C11216AB360001AD581 /* CDParentEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDParentEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		28940C12216AB360001AD581 /* CDDepositionPointEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDDepositionPointEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		28940C13216AB360001AD581 /* CDDepositionPointEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDDepositionPointEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		28940C1A216B5FE2001AD581 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		28940C1C216B6313001AD581 /* ParentEntity+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParentEntity+CoreData.swift"; sourceTree = "<group>"; };
+		28940C1E216B676B001AD581 /* CoreDataConvertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConvertable.swift; sourceTree = "<group>"; };
+		28940C21216B6797001AD581 /* DepositionPointEntity+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepositionPointEntity+CoreData.swift"; sourceTree = "<group>"; };
+		28940C23216B704D001AD581 /* LocalDepositionPointsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDepositionPointsStorage.swift; sourceTree = "<group>"; };
+		28940C25216B7FD6001AD581 /* DepositionPointsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositionPointsStorage.swift; sourceTree = "<group>"; };
+		28940C28216BD83A001AD581 /* QuadTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadTree.swift; sourceTree = "<group>"; };
+		28940C2A216C96B6001AD581 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		28940C2C216CAA7A001AD581 /* DataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		28AF5382216D5A08001B87CF /* ImagesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesHelper.swift; sourceTree = "<group>"; };
+		28AF5384216E25D4001B87CF /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
+		2ACAA42BBD5371388B0F065B /* MainMapViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
+		3F7989AE2DAD2CB209320B56 /* MainMapViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainMapViewOutput.swift; sourceTree = "<group>"; };
+		7DD4B15A3B7C4481956D4B94 /* MainMapInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainMapInteractor.swift; sourceTree = "<group>"; };
+		92C5B4B79DF9416370E48AB0 /* MainMapInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainMapInteractorOutput.swift; sourceTree = "<group>"; };
+		A173BEC3F3573EF2D01222D3 /* MainMapRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainMapRouterInput.swift; sourceTree = "<group>"; };
+		B18253C614388CE708A4532E /* MainMapPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainMapPresenter.swift; sourceTree = "<group>"; };
+		C191F49DC88759BC327B7E0E /* MainMapInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainMapInteractorInput.swift; sourceTree = "<group>"; };
+		C5E87EA01556D5E1A321EB97 /* MainMapModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainMapModuleInput.swift; sourceTree = "<group>"; };
+		C91ED8369D4703B6CF6358D2 /* MainMapConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainMapConfigurator.swift; sourceTree = "<group>"; };
+		FBB5F43B90E23929CEC221D4 /* MainMapViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainMapViewInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +102,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28940BD521693944001AD581 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2341CA3BB841CAF746361D19 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C5E87EA01556D5E1A321EB97 /* MainMapModuleInput.swift */,
+				B18253C614388CE708A4532E /* MainMapPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		28940BB321692D26001AD581 = {
 			isa = PBXGroup;
 			children = (
 				28940BBE21692D26001AD581 /* Tinkoff Test */,
 				28940BBD21692D26001AD581 /* Products */,
+				28940BD321693944001AD581 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +138,168 @@
 		28940BBE21692D26001AD581 /* Tinkoff Test */ = {
 			isa = PBXGroup;
 			children = (
+				28940C18216B5FC4001AD581 /* Helpers */,
+				28940BF7216AB124001AD581 /* CoreData */,
+				28940BE8216AAB39001AD581 /* Services */,
+				AC6A2663D3BA727BF47A149F /* VIPER */,
 				28940BBF21692D26001AD581 /* AppDelegate.swift */,
 				28940BC121692D26001AD581 /* ViewController.swift */,
 				28940BC321692D26001AD581 /* Main.storyboard */,
 				28940BC621692D28001AD581 /* Assets.xcassets */,
 				28940BC821692D28001AD581 /* LaunchScreen.storyboard */,
 				28940BCB21692D28001AD581 /* Info.plist */,
+				28940BEC216AAC49001AD581 /* DataModel.xcdatamodeld */,
 			);
 			path = "Tinkoff Test";
+			sourceTree = "<group>";
+		};
+		28940BD321693944001AD581 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28940BD421693944001AD581 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		28940BDA216AA976001AD581 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				28940BDD216AAA00001AD581 /* Entities */,
+				28940BDB216AA9C0001AD581 /* NetworkEntityRequestBuilder.swift */,
+				28940BD621693B81001AD581 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		28940BDD216AAA00001AD581 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				28940BDE216AAA43001AD581 /* LocationPointProtocol.swift */,
+				28940BE0216AAA66001AD581 /* LocatedProtocol.swift */,
+				28940BE2216AAA83001AD581 /* DepositionPointEntity.swift */,
+				28940BE6216AAAFA001AD581 /* PartnerEntity.swift */,
+				28940C1C216B6313001AD581 /* ParentEntity+CoreData.swift */,
+				28940C1E216B676B001AD581 /* CoreDataConvertable.swift */,
+				28940C21216B6797001AD581 /* DepositionPointEntity+CoreData.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		28940BE8216AAB39001AD581 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				28940BDA216AA976001AD581 /* Network */,
+				28940BD8216A7D9C001AD581 /* CoreDataManager.swift */,
+				28940BEA216AAB7B001AD581 /* DepositionPointsStorageProtocol.swift */,
+				28940C23216B704D001AD581 /* LocalDepositionPointsStorage.swift */,
+				28940C25216B7FD6001AD581 /* DepositionPointsStorage.swift */,
+				28940C2A216C96B6001AD581 /* ImageCacheManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		28940BF7216AB124001AD581 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				28940C10216AB360001AD581 /* CDParentEntity+CoreDataClass.swift */,
+				28940C11216AB360001AD581 /* CDParentEntity+CoreDataProperties.swift */,
+				28940C12216AB360001AD581 /* CDDepositionPointEntity+CoreDataClass.swift */,
+				28940C13216AB360001AD581 /* CDDepositionPointEntity+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		28940C18216B5FC4001AD581 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				28AF5381216D59EC001B87CF /* Images */,
+				28940C27216BD821001AD581 /* Data Structures */,
+				28940C19216B5FCA001AD581 /* Network */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		28940C19216B5FCA001AD581 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				28940C1A216B5FE2001AD581 /* Reachability.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		28940C27216BD821001AD581 /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				28940C28216BD83A001AD581 /* QuadTree.swift */,
+			);
+			path = "Data Structures";
+			sourceTree = "<group>";
+		};
+		28AF5381216D59EC001B87CF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				28AF5382216D5A08001B87CF /* ImagesHelper.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		62DD12AC5B01DC7B20CFCD7D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FBB5F43B90E23929CEC221D4 /* MainMapViewInput.swift */,
+				3F7989AE2DAD2CB209320B56 /* MainMapViewOutput.swift */,
+				2ACAA42BBD5371388B0F065B /* MainMapViewController.swift */,
+				28940BD1216938CE001AD581 /* MainMapViewController.xib */,
+				28AF5384216E25D4001B87CF /* MapPin.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71143892C5450E74A43B0A54 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A173BEC3F3573EF2D01222D3 /* MainMapRouterInput.swift */,
+				16E93B370217B39408A47084 /* MainMapRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		796F700148999B9D4E82C0F0 /* MainMap */ = {
+			isa = PBXGroup;
+			children = (
+				62DD12AC5B01DC7B20CFCD7D /* View */,
+				2341CA3BB841CAF746361D19 /* Presenter */,
+				91FFEBB7082BE142B567DE20 /* Interactor */,
+				71143892C5450E74A43B0A54 /* Router */,
+				B390DCDE722CBDF02D6A3360 /* Configurator */,
+			);
+			path = MainMap;
+			sourceTree = "<group>";
+		};
+		91FFEBB7082BE142B567DE20 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				C191F49DC88759BC327B7E0E /* MainMapInteractorInput.swift */,
+				92C5B4B79DF9416370E48AB0 /* MainMapInteractorOutput.swift */,
+				7DD4B15A3B7C4481956D4B94 /* MainMapInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		AC6A2663D3BA727BF47A149F /* VIPER */ = {
+			isa = PBXGroup;
+			children = (
+				796F700148999B9D4E82C0F0 /* MainMap */,
+			);
+			path = VIPER;
+			sourceTree = "<group>";
+		};
+		B390DCDE722CBDF02D6A3360 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				C91ED8369D4703B6CF6358D2 /* MainMapConfigurator.swift */,
+			);
+			path = Configurator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,11 +334,12 @@
 				TargetAttributes = {
 					28940BBB21692D26001AD581 = {
 						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 28940BB721692D26001AD581 /* Build configuration list for PBXProject "Tinkoff Test" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -122,6 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28940BD2216938CE001AD581 /* MainMapViewController.xib in Resources */,
 				28940BCA21692D28001AD581 /* LaunchScreen.storyboard in Resources */,
 				28940BC721692D28001AD581 /* Assets.xcassets in Resources */,
 				28940BC521692D26001AD581 /* Main.storyboard in Resources */,
@@ -135,8 +375,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28940C15216AB360001AD581 /* CDParentEntity+CoreDataProperties.swift in Sources */,
+				28940BE7216AAAFA001AD581 /* PartnerEntity.swift in Sources */,
 				28940BC221692D26001AD581 /* ViewController.swift in Sources */,
 				28940BC021692D26001AD581 /* AppDelegate.swift in Sources */,
+				28AF5383216D5A08001B87CF /* ImagesHelper.swift in Sources */,
+				28940C2B216C96B6001AD581 /* ImageCacheManager.swift in Sources */,
+				ED3FD8DC3DD179E4A64D08FE /* MainMapViewInput.swift in Sources */,
+				28940BDC216AA9C0001AD581 /* NetworkEntityRequestBuilder.swift in Sources */,
+				28940BE3216AAA83001AD581 /* DepositionPointEntity.swift in Sources */,
+				021A7112FEC8CBA3A3839ED6 /* MainMapViewOutput.swift in Sources */,
+				F245F0214329E30311C3165C /* MainMapViewController.swift in Sources */,
+				00D31000685BDF67DF5F2F49 /* MainMapModuleInput.swift in Sources */,
+				28AF5385216E25D4001B87CF /* MapPin.swift in Sources */,
+				28940C17216AB360001AD581 /* CDDepositionPointEntity+CoreDataProperties.swift in Sources */,
+				28940C16216AB360001AD581 /* CDDepositionPointEntity+CoreDataClass.swift in Sources */,
+				28940C26216B7FD6001AD581 /* DepositionPointsStorage.swift in Sources */,
+				28940BEE216AAC49001AD581 /* DataModel.xcdatamodeld in Sources */,
+				198048E260904F49E2DD25A7 /* MainMapPresenter.swift in Sources */,
+				28940C29216BD83A001AD581 /* QuadTree.swift in Sources */,
+				28940C1D216B6313001AD581 /* ParentEntity+CoreData.swift in Sources */,
+				28940C1B216B5FE2001AD581 /* Reachability.swift in Sources */,
+				28940BE1216AAA66001AD581 /* LocatedProtocol.swift in Sources */,
+				113AE988B9BFDE87E8DE0AA5 /* MainMapInteractorInput.swift in Sources */,
+				28940BEB216AAB7B001AD581 /* DepositionPointsStorageProtocol.swift in Sources */,
+				DAFA63539AABA4FF031ECAE9 /* MainMapInteractorOutput.swift in Sources */,
+				3BC30EE5DCD2DC0CBAA0C601 /* MainMapInteractor.swift in Sources */,
+				28940BD721693B81001AD581 /* NetworkService.swift in Sources */,
+				28940C1F216B676B001AD581 /* CoreDataConvertable.swift in Sources */,
+				5BDBC48F2B8256F874FE47F3 /* MainMapRouterInput.swift in Sources */,
+				28940C24216B704D001AD581 /* LocalDepositionPointsStorage.swift in Sources */,
+				28940BDF216AAA43001AD581 /* LocationPointProtocol.swift in Sources */,
+				28940C14216AB360001AD581 /* CDParentEntity+CoreDataClass.swift in Sources */,
+				28940C22216B6797001AD581 /* DepositionPointEntity+CoreData.swift in Sources */,
+				5E878D62A0D59900E22BE675 /* MainMapRouter.swift in Sources */,
+				328DCBEC84235D29A881C8AE /* MainMapConfigurator.swift in Sources */,
+				28940BD9216A7D9C001AD581 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,8 +546,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -283,11 +556,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q29RDVLG63;
 				INFOPLIST_FILE = "Tinkoff Test/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mmalatsion.Tinkoff-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -300,11 +571,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q29RDVLG63;
 				INFOPLIST_FILE = "Tinkoff Test/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mmalatsion.Tinkoff-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -334,6 +603,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		28940BEC216AAC49001AD581 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				28940C2C216CAA7A001AD581 /* DataModel 2.xcdatamodel */,
+				28940BED216AAC49001AD581 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 28940C2C216CAA7A001AD581 /* DataModel 2.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 28940BB421692D26001AD581 /* Project object */;
 }

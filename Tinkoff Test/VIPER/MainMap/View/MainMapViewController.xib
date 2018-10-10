@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainMapViewController" customModule="Tinkoff_Test" customModuleProvider="target">
+            <connections>
+                <outlet property="locationButton" destination="BoX-Br-E1R" id="fXw-9e-A8t"/>
+                <outlet property="mapView" destination="geY-cc-lbP" id="i0s-jS-aIj"/>
+                <outlet property="view" destination="iN0-l3-epB" id="gf2-Zs-mDE"/>
+                <outlet property="zoomInButton" destination="buW-VM-r90" id="p1s-kN-XvW"/>
+                <outlet property="zoomOutButton" destination="f0N-zO-f8D" id="gHL-9V-1Kg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="geY-cc-lbP">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </mapView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buW-VM-r90">
+                    <rect key="frame" x="304" y="441" width="56" height="56.5"/>
+                    <color key="backgroundColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="buW-VM-r90" secondAttribute="height" multiplier="1:1" id="C4W-HY-9CC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <state key="normal" title="+">
+                        <color key="titleColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </state>
+                    <connections>
+                        <action selector="zoomIn:" destination="-1" eventType="touchUpInside" id="FSt-dP-mKc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0N-zO-f8D">
+                    <rect key="frame" x="304" y="505.5" width="56" height="56"/>
+                    <color key="backgroundColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="f0N-zO-f8D" secondAttribute="height" multiplier="1:1" id="n4l-qq-Rqa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <state key="normal" title="-">
+                        <color key="titleColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </state>
+                    <connections>
+                        <action selector="zoomOut:" destination="-1" eventType="touchUpInside" id="EXz-OA-cEm"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoX-Br-E1R">
+                    <rect key="frame" x="312" y="583.5" width="39.5" height="39.5"/>
+                    <color key="backgroundColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="BoX-Br-E1R" secondAttribute="height" multiplier="1:1" id="JCd-zu-fls"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="🚩">
+                        <color key="titleColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </state>
+                    <connections>
+                        <action selector="centerUser:" destination="-1" eventType="touchUpInside" id="h1s-HZ-Rgy"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="buW-VM-r90" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.15" id="0UL-4b-7Rm"/>
+                <constraint firstItem="f0N-zO-f8D" firstAttribute="width" secondItem="buW-VM-r90" secondAttribute="width" id="1UI-SH-cxL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="BoX-Br-E1R" secondAttribute="bottom" constant="44" id="3bY-vm-tlK"/>
+                <constraint firstItem="BoX-Br-E1R" firstAttribute="width" secondItem="BoX-Br-E1R" secondAttribute="height" multiplier="1:1" id="4Li-Ba-r3A"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="buW-VM-r90" secondAttribute="trailing" constant="15" id="8DA-XW-kzH"/>
+                <constraint firstItem="f0N-zO-f8D" firstAttribute="centerX" secondItem="buW-VM-r90" secondAttribute="centerX" id="8Oo-5F-Knm"/>
+                <constraint firstItem="BoX-Br-E1R" firstAttribute="top" secondItem="f0N-zO-f8D" secondAttribute="bottom" constant="22" id="Dqe-V8-4N9"/>
+                <constraint firstItem="BoX-Br-E1R" firstAttribute="centerX" secondItem="f0N-zO-f8D" secondAttribute="centerX" id="ESq-mV-tMD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="geY-cc-lbP" secondAttribute="trailing" id="G10-zt-Lql"/>
+                <constraint firstAttribute="bottom" secondItem="geY-cc-lbP" secondAttribute="bottom" id="KIG-Gv-S6w"/>
+                <constraint firstItem="geY-cc-lbP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cEJ-xb-wa0"/>
+                <constraint firstItem="BoX-Br-E1R" firstAttribute="width" secondItem="BoX-Br-E1R" secondAttribute="height" multiplier="1:1" id="eHR-ev-AMI"/>
+                <constraint firstItem="geY-cc-lbP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fqJ-UM-iJN"/>
+                <constraint firstItem="f0N-zO-f8D" firstAttribute="top" secondItem="buW-VM-r90" secondAttribute="bottom" constant="8" id="gje-2p-REQ"/>
+                <constraint firstItem="f0N-zO-f8D" firstAttribute="width" secondItem="f0N-zO-f8D" secondAttribute="height" multiplier="1:1" id="n7c-6p-kmu"/>
+                <constraint firstItem="BoX-Br-E1R" firstAttribute="width" secondItem="f0N-zO-f8D" secondAttribute="width" multiplier="0.7" id="rs8-t5-Bau"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

@@ -16,6 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let coreDataStack : CoreDataManagerProtocol = CoreDataManager(modelName: "DataModel")
+        
+        coreDataStack.raiseStack(success: {
+            
+            let localStorage = LocalDepositionPointsStorage(coreDataManager: coreDataStack)
+            let remoteStorage = NetworkService(baseUrl: "https://api.tinkoff.ru", staticUrl : "https://static.tinkoff.ru")
+            let dataStorage : CompleateDepositionPointsStorageCacherProtocol = DepositionPointsStorage(remoteStorage: remoteStorage, localStorage: localStorage)
+            
+            let mapViewController = MainMapViewController(nibName : String(describing: MainMapViewController.self), bundle: nil)
+            let configurator = MainMapModuleConfigurator(dataStorage: dataStorage)
+            configurator.configureModuleForViewInput(viewInput: mapViewController)
+            self.window?.rootViewController = mapViewController
+        }, failure: { err in
+            
+        })
+        
         return true
     }
 
