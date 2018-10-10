@@ -122,15 +122,17 @@ class MainMapViewController: UIViewController, MainMapViewInput {
                     _ = self.treeRoot.insert(data: self.node(from: location))
                 }
             } else {
-                let before = NSMutableSet(set: self.cachedAnnotations!)
+//                let before = NSMutableSet(set: self.cachedAnnotations!)
                 let after = NSMutableSet(array: locations.compactMap { PointHashableWrapper(point: $0) })
-                // STRANGE CRASH HERE SOMETIMES
-                // TODO: FIX IT ANY PRICE
-                let toKeep = NSMutableSet(set: before)
-                toKeep.intersect(after as! Set<PointHashableWrapper>)
+                let toKeep = NSMutableSet(set: self.cachedAnnotations!)
+                if after.count > 0{
+                    toKeep.intersect(after as! Set<PointHashableWrapper>)
+                }
 
                 let toAdd = NSMutableSet(set: after)
-                toAdd.minus(toKeep as! Set<PointHashableWrapper>)
+                if toKeep.count > 0{
+                    toAdd.minus(toKeep as! Set<PointHashableWrapper>)
+                }
 
                 toAdd.allObjects.compactMap { $0 as? PointHashableWrapper }.forEach { wrapper in
                     _ = self.treeRoot.insert(data: self.node(from: wrapper.point))
