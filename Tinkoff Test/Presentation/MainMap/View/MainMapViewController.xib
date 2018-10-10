@@ -61,7 +61,7 @@
                         <constraint firstAttribute="width" secondItem="BoX-Br-E1R" secondAttribute="height" multiplier="1:1" id="JCd-zu-fls"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="🚩">
+                    <state key="normal" title="📍">
                         <color key="titleColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </state>
                     <connections>
