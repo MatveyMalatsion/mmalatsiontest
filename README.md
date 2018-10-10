@@ -3,7 +3,7 @@ Test work
 
 M Malatsion - madway94@yandex.ru/ +79046718980
 
-![Implementation](https://b.radikal.ru/b03/1810/5f/f86b976474d2.gif)
+![Implementation](http://b.radikal.ru/b03/1810/5f/f86b976474d2.gif)
 
 ##Known issues:
 * Annotation diffing is removed couse of random crashes which I did not have time to fix
