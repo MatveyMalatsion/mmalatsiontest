@@ -139,7 +139,7 @@
 				28940C18216B5FC4001AD581 /* Helpers */,
 				28940BF7216AB124001AD581 /* CoreData */,
 				28940BE8216AAB39001AD581 /* Services */,
-				AC6A2663D3BA727BF47A149F /* VIPER */,
+				AC6A2663D3BA727BF47A149F /* Presentation */,
 				28940BBF21692D26001AD581 /* AppDelegate.swift */,
 				28940BC121692D26001AD581 /* ViewController.swift */,
 				28940BC321692D26001AD581 /* Main.storyboard */,
@@ -283,12 +283,12 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		AC6A2663D3BA727BF47A149F /* VIPER */ = {
+		AC6A2663D3BA727BF47A149F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				796F700148999B9D4E82C0F0 /* MainMap */,
 			);
-			path = VIPER;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		B390DCDE722CBDF02D6A3360 /* Configurator */ = {

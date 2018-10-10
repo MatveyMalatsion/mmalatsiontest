@@ -84,8 +84,7 @@ class MainMapViewController: UIViewController, MainMapViewInput {
 //            (point as? MapPin)?.needToAnimateOnAppearance = true
 //        }
 //      Something strange sometimes happende here
-        //      So for now:
-        // TODO: make correct diffing and remove/add only needed points
+        
 
 //        let eps = 0.000001
 //        before.compactMap{$0 as? MapPin}.filter{ pin1 in
@@ -99,7 +98,10 @@ class MainMapViewController: UIViewController, MainMapViewInput {
 //            }.forEach{
 //                $0.needToAnimateOnAppearance = true
 //        }
-
+//      Something strange sometimes happende here
+//      So for now
+//      TODO: make correct diffing and remove/add only needed points
+        
         OperationQueue.main.addOperation {
             self.mapView.removeAnnotations(before.allObjects.compactMap { $0 as? MapPin })
             self.mapView.addAnnotations(annotations)
