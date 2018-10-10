@@ -8,14 +8,12 @@
 import UIKit
 
 protocol MainMapViewInput: class {
-
     /**
-        @author madway94@yandex.ru
-        Setup initial state of the view
-    */
+     @author madway94@yandex.ru
+     Setup initial state of the view
+     */
 
     func setupInitialState()
     func showRegularAnnotations(for locations: [DepositionPointProtocol])
     func reloadPins()
-    
 }

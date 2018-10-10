@@ -6,24 +6,22 @@
 //  Copyright © 2018 mmalatsion. All rights reserved.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
-
-
-extension PartnerEntity : CoreDataConvertable{
-    func fillCoreData(object : CDParentEntity) -> CDParentEntity {
-        object.depositionDuration = self.depositionDuration
-        object.descriptionString = self.description
-        object.hasLocation = self.hasLocations ?? false
-        object.id = self.id
-        object.isMomentary = self.isMomentary ?? false
-        object.limitations = self.limitations
-        object.name = self.name
-        object.picture = self.picture
+extension PartnerEntity: CoreDataConvertable {
+    func fillCoreData(object: CDParentEntity) -> CDParentEntity {
+        object.depositionDuration = depositionDuration
+        object.descriptionString = description
+        object.hasLocation = hasLocations ?? false
+        object.id = id
+        object.isMomentary = isMomentary ?? false
+        object.limitations = limitations
+        object.name = name
+        object.picture = picture
         return object
     }
-    
+
     static func objectFromCoreData(object: CDParentEntity) -> PartnerEntity {
         var entity = PartnerEntity()
         entity.depositionDuration = object.depositionDuration
@@ -36,8 +34,6 @@ extension PartnerEntity : CoreDataConvertable{
         entity.picture = object.picture
         return entity
     }
-    
+
     typealias T = CDParentEntity
-    
-    
 }

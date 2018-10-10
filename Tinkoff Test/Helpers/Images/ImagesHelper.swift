@@ -9,24 +9,22 @@
 import Foundation
 import UIKit
 
-enum ImageResolutionType : String {
+enum ImageResolutionType: String {
     case mdpi
     case xhdpi
     case xxhdpi
 }
 
-class ImagesHelper{
-    
-    func getResolutionTypeForCurrentScreen() -> ImageResolutionType{
-       let scale =  UIScreen.main.scale
-        
-        if scale >= 3{
+class ImagesHelper {
+    func getResolutionTypeForCurrentScreen() -> ImageResolutionType {
+        let scale = UIScreen.main.scale
+
+        if scale >= 3 {
             return .xxhdpi
-        }else if scale >= 2{
+        } else if scale >= 2 {
             return .xxhdpi
-        }else{
+        } else {
             return .mdpi
         }
     }
-    
 }

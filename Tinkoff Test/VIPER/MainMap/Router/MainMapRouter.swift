@@ -6,6 +6,4 @@
 //  Copyright © 2018 MMalatsion. All rights reserved.
 //
 
-class MainMapRouter: MainMapRouterInput {
-
-}
+class MainMapRouter: MainMapRouterInput {}

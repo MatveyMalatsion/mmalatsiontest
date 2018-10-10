@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol LocationPointProtocol : Codable{
-    var latitude : Float? { set get }
-    var longitude : Float? { set get }
+protocol LocationPointProtocol: Codable {
+    var latitude: Float? { set get }
+    var longitude: Float? { set get }
 }
 
-struct  LocationPoint : LocationPointProtocol{
-    var latitude : Float?
-    var longitude : Float?
+struct LocationPoint: LocationPointProtocol {
+    var latitude: Float?
+    var longitude: Float?
 }

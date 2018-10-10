@@ -38,7 +38,6 @@
 		28940C24216B704D001AD581 /* LocalDepositionPointsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C23216B704D001AD581 /* LocalDepositionPointsStorage.swift */; };
 		28940C26216B7FD6001AD581 /* DepositionPointsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C25216B7FD6001AD581 /* DepositionPointsStorage.swift */; };
 		28940C29216BD83A001AD581 /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C28216BD83A001AD581 /* QuadTree.swift */; };
-		28940C2B216C96B6001AD581 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28940C2A216C96B6001AD581 /* ImageCacheManager.swift */; };
 		28AF5383216D5A08001B87CF /* ImagesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AF5382216D5A08001B87CF /* ImagesHelper.swift */; };
 		28AF5385216E25D4001B87CF /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AF5384216E25D4001B87CF /* MapPin.swift */; };
 		328DCBEC84235D29A881C8AE /* MainMapConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91ED8369D4703B6CF6358D2 /* MainMapConfigurator.swift */; };
@@ -81,7 +80,6 @@
 		28940C23216B704D001AD581 /* LocalDepositionPointsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDepositionPointsStorage.swift; sourceTree = "<group>"; };
 		28940C25216B7FD6001AD581 /* DepositionPointsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositionPointsStorage.swift; sourceTree = "<group>"; };
 		28940C28216BD83A001AD581 /* QuadTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadTree.swift; sourceTree = "<group>"; };
-		28940C2A216C96B6001AD581 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		28940C2C216CAA7A001AD581 /* DataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		28AF5382216D5A08001B87CF /* ImagesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesHelper.swift; sourceTree = "<group>"; };
 		28AF5384216E25D4001B87CF /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 				28940BEA216AAB7B001AD581 /* DepositionPointsStorageProtocol.swift */,
 				28940C23216B704D001AD581 /* LocalDepositionPointsStorage.swift */,
 				28940C25216B7FD6001AD581 /* DepositionPointsStorage.swift */,
-				28940C2A216C96B6001AD581 /* ImageCacheManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -380,7 +377,6 @@
 				28940BC221692D26001AD581 /* ViewController.swift in Sources */,
 				28940BC021692D26001AD581 /* AppDelegate.swift in Sources */,
 				28AF5383216D5A08001B87CF /* ImagesHelper.swift in Sources */,
-				28940C2B216C96B6001AD581 /* ImageCacheManager.swift in Sources */,
 				ED3FD8DC3DD179E4A64D08FE /* MainMapViewInput.swift in Sources */,
 				28940BDC216AA9C0001AD581 /* NetworkEntityRequestBuilder.swift in Sources */,
 				28940BE3216AAA83001AD581 /* DepositionPointEntity.swift in Sources */,

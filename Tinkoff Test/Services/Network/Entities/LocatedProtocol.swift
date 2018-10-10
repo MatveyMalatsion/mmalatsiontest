@@ -9,5 +9,5 @@
 import Foundation
 
 protocol LocatedProtocol {
-    var location : LocationPointProtocol? { set get }
+    var location: LocationPointProtocol? { set get }
 }

@@ -7,10 +7,8 @@
 //
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 @objc(CDDepositionPointEntity)
-public class CDDepositionPointEntity: NSManagedObject {
-
-}
+public class CDDepositionPointEntity: NSManagedObject {}

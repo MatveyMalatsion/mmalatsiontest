@@ -7,10 +7,8 @@
 //
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 @objc(CDParentEntity)
-public class CDParentEntity: NSManagedObject {
-
-}
+public class CDParentEntity: NSManagedObject {}

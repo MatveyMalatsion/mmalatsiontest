@@ -11,7 +11,7 @@ import UIKit
 
 protocol MainMapInteractorInput {
     func loadPoints(lat: Double, lon: Double, radius: Double)
-    func fetchPartner(for point : DepositionPointProtocol, compleation : @escaping (PartnerProtocol?)->())
-    func getImage(for partner: PartnerProtocol, cached: @escaping (UIImage) -> (), compleation: @escaping (UIImage) -> ())
-    func updatePartnerCache(compleation : @escaping (Bool)->())
+    func fetchPartner(for point: DepositionPointProtocol, completion: @escaping (PartnerProtocol?) -> Void)
+    func getImage(for partner: PartnerProtocol, cached: @escaping (UIImage) -> Void, completion: @escaping (UIImage) -> Void)
+    func updatePartnerCache(completion: @escaping (Bool) -> Void)
 }

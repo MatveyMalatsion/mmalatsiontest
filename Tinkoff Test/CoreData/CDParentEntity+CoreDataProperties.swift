@@ -7,12 +7,10 @@
 //
 //
 
-import Foundation
 import CoreData
-
+import Foundation
 
 extension CDParentEntity {
-
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CDParentEntity> {
         return NSFetchRequest<CDParentEntity>(entityName: "CDParentEntity")
     }
@@ -28,12 +26,11 @@ extension CDParentEntity {
     @NSManaged public var pointType: String?
     @NSManaged public var url: String?
     @NSManaged public var points: NSSet?
-
 }
 
 // MARK: Generated accessors for points
-extension CDParentEntity {
 
+extension CDParentEntity {
     @objc(addPointsObject:)
     @NSManaged public func addToPoints(_ value: CDDepositionPointEntity)
 
@@ -45,5 +42,4 @@ extension CDParentEntity {
 
     @objc(removePoints:)
     @NSManaged public func removeFromPoints(_ values: NSSet)
-
 }

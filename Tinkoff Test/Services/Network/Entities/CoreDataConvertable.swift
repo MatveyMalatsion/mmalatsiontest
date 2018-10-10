@@ -6,12 +6,12 @@
 //  Copyright © 2018 mmalatsion. All rights reserved.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
-protocol CoreDataConvertable{
-    associatedtype T : NSManagedObject
-    
-    static func objectFromCoreData(object : T) -> Self
-    func fillCoreData(object : T) -> T
+protocol CoreDataConvertable {
+    associatedtype T: NSManagedObject
+
+    static func objectFromCoreData(object: T) -> Self
+    func fillCoreData(object: T) -> T
 }

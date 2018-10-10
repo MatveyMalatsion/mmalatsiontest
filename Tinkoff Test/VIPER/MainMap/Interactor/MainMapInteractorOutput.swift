@@ -9,5 +9,5 @@
 import Foundation
 
 protocol MainMapInteractorOutput: class {
-     func interactorDidLoad(points : [DepositionPointProtocol])
+    func interactorDidLoad(points: [DepositionPointProtocol])
 }

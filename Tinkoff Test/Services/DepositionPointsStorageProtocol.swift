@@ -9,6 +9,6 @@
 import Foundation
 
 protocol DepositionPointsStorageProtocol {
-    func getDepositionPoints(location : LocationPointProtocol, radius: Float, partners: [PartnerProtocol]?, success: @escaping ([DepositionPointProtocol])->(), failure : @escaping (Error?)->())
-    func getPartners(type: PartnerType, success: @escaping ([PartnerProtocol])->(), failure : @escaping (Error?)->())
+    func getDepositionPoints(location: LocationPointProtocol, radius: Float, partners: [PartnerProtocol]?, success: @escaping ([DepositionPointProtocol]) -> Void, failure: @escaping (Error?) -> Void)
+    func getPartners(type: PartnerType, success: @escaping ([PartnerProtocol]) -> Void, failure: @escaping (Error?) -> Void)
 }

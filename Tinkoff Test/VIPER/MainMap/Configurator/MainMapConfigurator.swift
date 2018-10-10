@@ -9,33 +9,29 @@
 import UIKit
 
 class MainMapModuleConfigurator {
+    let dataStorage: CompleateDepositionPointsStorageCacherProtocol
 
-    let dataStorage : CompleateDepositionPointsStorageCacherProtocol
-    
-    init(dataStorage : CompleateDepositionPointsStorageCacherProtocol){
+    init(dataStorage: CompleateDepositionPointsStorageCacherProtocol) {
         self.dataStorage = dataStorage
     }
-    
-    func configureModuleForViewInput<UIViewController>(viewInput: UIViewController) {
 
+    func configureModuleForViewInput<UIViewController>(viewInput: UIViewController) {
         if let viewController = viewInput as? MainMapViewController {
             configure(viewController: viewController)
         }
     }
 
     private func configure(viewController: MainMapViewController) {
-
         let router = MainMapRouter()
 
         let presenter = MainMapPresenter()
         presenter.view = viewController
         presenter.router = router
 
-        let interactor = MainMapInteractor(dataStorage: self.dataStorage)
+        let interactor = MainMapInteractor(dataStorage: dataStorage)
         interactor.output = presenter
 
         presenter.interactor = interactor
         viewController.output = presenter
     }
-
 }

@@ -8,20 +8,20 @@
 
 import Foundation
 
-protocol PartnerProtocol : Codable {
-    var id : String? { set get }
-    var name : String? { set get }
-    var picture : String? { set get }
-    var url : String? { set get }
-    var hasLocations : Bool? { set get }
-    var isMomentary : Bool? { set get }
-    var depositionDuration : String? { set get }
-    var limitations : String? { set get }
-    var pointType : String? { set get }
-    var description : String? { set get }
+protocol PartnerProtocol: Codable {
+    var id: String? { set get }
+    var name: String? { set get }
+    var picture: String? { set get }
+    var url: String? { set get }
+    var hasLocations: Bool? { set get }
+    var isMomentary: Bool? { set get }
+    var depositionDuration: String? { set get }
+    var limitations: String? { set get }
+    var pointType: String? { set get }
+    var description: String? { set get }
 }
 
-struct PartnerEntity : PartnerProtocol{
+struct PartnerEntity: PartnerProtocol {
     var id: String?
     var name: String?
     var picture: String?
@@ -32,20 +32,19 @@ struct PartnerEntity : PartnerProtocol{
     var limitations: String?
     var pointType: String?
     var description: String?
-    
-    init(){}
-    
-    init(object : PartnerProtocol){
-        
-        self.id                 = object.id
-        self.name               = object.name
-        self.picture            = object.picture
-        self.url                = object.url
-        self.hasLocations       = object.hasLocations
-        self.isMomentary        = object.isMomentary
-        self.depositionDuration = object.depositionDuration
-        self.limitations        = object.limitations
-        self.pointType          = object.pointType
-        self.description        = object.description
+
+    init() {}
+
+    init(object: PartnerProtocol) {
+        id = object.id
+        name = object.name
+        picture = object.picture
+        url = object.url
+        hasLocations = object.hasLocations
+        isMomentary = object.isMomentary
+        depositionDuration = object.depositionDuration
+        limitations = object.limitations
+        pointType = object.pointType
+        description = object.description
     }
 }

@@ -7,12 +7,10 @@
 //
 //
 
-import Foundation
 import CoreData
-
+import Foundation
 
 extension CDDepositionPointEntity {
-
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CDDepositionPointEntity> {
         return NSFetchRequest<CDDepositionPointEntity>(entityName: "CDDepositionPointEntity")
     }
@@ -26,5 +24,4 @@ extension CDDepositionPointEntity {
     @NSManaged public var phones: String?
     @NSManaged public var workHours: String?
     @NSManaged public var parent: CDParentEntity?
-
 }

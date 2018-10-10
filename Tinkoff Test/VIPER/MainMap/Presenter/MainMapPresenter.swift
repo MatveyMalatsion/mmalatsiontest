@@ -13,26 +13,26 @@ class MainMapPresenter: MainMapModuleInput, MainMapViewOutput, MainMapInteractor
     var router: MainMapRouterInput!
 
     func viewIsReady() {
-        self.interactor.updatePartnerCache(compleation: { success in
-            if success{
+        interactor.updatePartnerCache(completion: { success in
+            if success {
                 self.view.reloadPins()
             }
         })
     }
-    
-    func fetchPartner(for point : DepositionPointProtocol, compleation : @escaping (PartnerProtocol?)->()){
-        self.interactor.fetchPartner(for: point, compleation: compleation)
+
+    func fetchPartner(for point: DepositionPointProtocol, completion: @escaping (PartnerProtocol?) -> Void) {
+        interactor.fetchPartner(for: point, completion: completion)
     }
-    
+
     func interactorDidLoad(points: [DepositionPointProtocol]) {
-        self.view.showRegularAnnotations(for: points)
+        view.showRegularAnnotations(for: points)
     }
-    
+
     func userDidChangeMapConfiguration(lat: Double, lon: Double, radius: Double) {
-        self.interactor.loadPoints(lat: lat, lon: lon, radius: radius)
+        interactor.loadPoints(lat: lat, lon: lon, radius: radius)
     }
-    
-    func getImage(for partner: PartnerProtocol, cached: @escaping (UIImage) -> (), compleation: @escaping (UIImage) -> ()){
-        self.interactor.getImage(for: partner, cached: cached, compleation: compleation)
+
+    func getImage(for partner: PartnerProtocol, cached: @escaping (UIImage) -> Void, completion: @escaping (UIImage) -> Void) {
+        interactor.getImage(for: partner, cached: cached, completion: completion)
     }
 }

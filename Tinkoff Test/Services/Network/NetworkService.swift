@@ -9,116 +9,116 @@
 import Foundation
 import UIKit
 
-enum PartnerType : String{
-    case Credit
-    case Save
+enum PartnerType: String {
+    case сredit = "Credit"
+    case save = "Save"
 }
 
-protocol ImageFetcherProtocol{
-    func downloadImage(name : String, cacheDate: Date?, resolution: ImageResolutionType, success : @escaping (UIImage?, Date) -> (), failure : @escaping (Error?)->())
-    func checkLastModified(name : String, resolution: ImageResolutionType, date : Date, shouldLoadBlock: @escaping (Bool)->())
+protocol ImageFetcherProtocol {
+    func downloadImage(name: String, cacheDate: Date?, resolution: ImageResolutionType, success: @escaping (UIImage?, Date) -> Void, failure: @escaping (Error?) -> Void)
+    func checkLastModified(name: String, resolution: ImageResolutionType, date: Date, shouldLoadBlock: @escaping (Bool) -> Void)
 }
-protocol NetworkFetcherProtocol : DepositionPointsStorageProtocol, ImageFetcherProtocol {}
 
-class NetworkService :  NetworkFetcherProtocol{
-    
-    let baseUrl : String
-    let staticUrl : String
-    var currentDepositionPointTask : URLSessionDataTask?
-    
-    required init(baseUrl : String, staticUrl : String){
+protocol NetworkFetcherProtocol: DepositionPointsStorageProtocol, ImageFetcherProtocol {}
+
+class NetworkService: NetworkFetcherProtocol {
+    let baseUrl: String
+    let staticUrl: String
+    var currentDepositionPointTask: URLSessionDataTask?
+
+    required init(baseUrl: String, staticUrl: String) {
         self.baseUrl = baseUrl
         self.staticUrl = staticUrl
     }
-    
-    enum NetworkEndpoints : String{
+
+    enum NetworkEndpoints: String {
         case getPoints = "/v1/deposition_points"
         case getPartners = "/v1/deposition_partners"
         case getImage = "/icons/deposition-partners-v3"
     }
-    
-    
-    func getPartners(type: PartnerType, success: @escaping ([PartnerProtocol])->(), failure : @escaping (Error?)->()){
-        
-        let params = ["accountType" : type.rawValue]
+
+    func getPartners(type: PartnerType, success: @escaping ([PartnerProtocol]) -> Void, failure: @escaping (Error?) -> Void) {
+        let params = ["accountType": type.rawValue]
         let url = URL(string: "\(baseUrl)\(NetworkEndpoints.getPartners.rawValue)")!
-        
-        let successBlock : ([PartnerEntity])->() = { partners in
-            success(partners)
+
+        let successBlock: ([PartnerEntity]) -> Void = { partners in
+            DispatchQueue.main.async {
+                success(partners)
+            }
         }
-        let task : URLSessionDataTask = NetworkEntityRequestBuilder<[PartnerEntity]>().buildGetDataTask(with: url, params: params, success: successBlock, failure: failure)
+        let task: URLSessionDataTask = NetworkEntityRequestBuilder<[PartnerEntity]>().buildGetDataTask(with: url, params: params, success: successBlock, failure: failure)
         task.resume()
     }
-    
-    func getDepositionPoints(location : LocationPointProtocol, radius: Float, partners: [PartnerProtocol]?, success: @escaping ([DepositionPointProtocol])->(), failure : @escaping (Error?)->()) {
-        
-        guard let lat = location.latitude, let lon = location.longitude, radius >= 0 else{
+
+    func getDepositionPoints(location: LocationPointProtocol, radius: Float, partners: [PartnerProtocol]?, success: @escaping ([DepositionPointProtocol]) -> Void, failure: @escaping (Error?) -> Void) {
+        guard let lat = location.latitude, let lon = location.longitude, radius >= 0 else {
             failure(NSError(domain: "NetworkCenter", code: 3, userInfo: ["reason": "invalid params"]))
             return
         }
-        
-        let partnersToPass = (partners ?? []).compactMap{$0.name}
-        
-        var params : [String : String] = [
-            "latitude" : String(lat),
-            "longitude" : String(lon),
-            "radius" : String(Int(radius))
+
+        let partnersToPass = (partners ?? []).compactMap { $0.name }
+
+        var params: [String: String] = [
+            "latitude": String(lat),
+            "longitude": String(lon),
+            "radius": String(Int(radius)),
         ]
-        
-        if partnersToPass.count > 0{
+
+        if partnersToPass.count > 0 {
             params["partners"] = partnersToPass.joined(separator: ",")
         }
-        
+
         let url = URL(string: "\(baseUrl)\(NetworkEndpoints.getPoints.rawValue)")!
-        
-        let successBlock : ([DepositionPointEntity]) -> () = { objects in
-            success(objects)
+
+        let successBlock: ([DepositionPointEntity]) -> Void = { objects in
+            DispatchQueue.main.async {
+                success(objects)
+            }
         }
-        
-        self.currentDepositionPointTask?.cancel()
-        let task : URLSessionDataTask = NetworkEntityRequestBuilder<[DepositionPointEntity]>().buildGetDataTask(with: url, params: params, success: successBlock, failure: failure)
-        self.currentDepositionPointTask = task
+
+        currentDepositionPointTask?.cancel()
+        let task: URLSessionDataTask = NetworkEntityRequestBuilder<[DepositionPointEntity]>().buildGetDataTask(with: url, params: params, success: successBlock, failure: failure)
+        currentDepositionPointTask = task
         task.resume()
     }
-    
-    func downloadImage(name : String, cacheDate: Date?, resolution: ImageResolutionType, success : @escaping (UIImage?, Date) -> (), failure : @escaping (Error?)->()){
-        
-        let url = URL(string: "\(self.staticUrl)\(NetworkEndpoints.getImage.rawValue)/\(resolution.rawValue)/\(name)")!
+
+    func downloadImage(name: String, cacheDate _: Date?, resolution: ImageResolutionType, success: @escaping (UIImage?, Date) -> Void, failure: @escaping (Error?) -> Void) {
+        let url = URL(string: "\(staticUrl)\(NetworkEndpoints.getImage.rawValue)/\(resolution.rawValue)/\(name)")!
         let urlRequest = URLRequest(url: url)
-        
-        URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, response, error in
-            if error != nil{
+
+        URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, _, error in
+            if error != nil {
                 failure(error)
-            }else{
-                if let data = data{
-                    success(UIImage(data: data), Date())
+            } else {
+                if let data = data {
+                    DispatchQueue.main.async {
+                        success(UIImage(data: data), Date())
+                    }
                 }
             }
-            
+
         }).resume()
-        
     }
-    
-    
-    func checkLastModified(name : String, resolution: ImageResolutionType, date : Date, shouldLoadBlock: @escaping (Bool)->()){
-        let url = URL(string: "\(self.staticUrl)\(NetworkEndpoints.getImage.rawValue)/\(resolution.rawValue)/\(name)")!
+
+    func checkLastModified(name: String, resolution: ImageResolutionType, date: Date, shouldLoadBlock: @escaping (Bool) -> Void) {
+        let url = URL(string: "\(staticUrl)\(NetworkEndpoints.getImage.rawValue)/\(resolution.rawValue)/\(name)")!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "HEAD"
-        
-        URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, response, error in
+
+        URLSession.shared.dataTask(with: urlRequest, completionHandler: { _, response, _ in
             if let httpResp: HTTPURLResponse = response as? HTTPURLResponse {
-                if let dateString = httpResp.allHeaderFields["Last-Modified"] as? String{
+                if let dateString = httpResp.allHeaderFields["Last-Modified"] as? String {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss z"
-                    if let serverDate = dateFormatter.date(from: dateString){
+                    if let serverDate = dateFormatter.date(from: dateString) {
                         shouldLoadBlock(serverDate > date)
-                    }else{
+                    } else {
                         shouldLoadBlock(true)
                     }
                 }
             }
             shouldLoadBlock(true)
-                
+
         }).resume()
     }
 }

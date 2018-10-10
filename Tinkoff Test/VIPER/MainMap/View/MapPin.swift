@@ -9,46 +9,40 @@
 import Foundation
 import MapKit
 
-struct PointHashableWrapper : Hashable {
-    
-    var point : DepositionPointProtocol
-    var annotation : MapPin?
-    
-    init(point : DepositionPointProtocol, annotation: MapPin?){
+struct PointHashableWrapper: Hashable {
+    var point: DepositionPointProtocol
+    var annotation: MapPin?
+
+    init(point: DepositionPointProtocol, annotation: MapPin?) {
         self.point = point
         self.annotation = annotation
     }
-    
-    init(point : DepositionPointProtocol){
+
+    init(point: DepositionPointProtocol) {
         self.point = point
     }
-    
+
     static func == (lhs: PointHashableWrapper, rhs: PointHashableWrapper) -> Bool {
         return lhs.point.hashValue == rhs.point.hashValue
     }
-    
-    var hashValue : Int{
-        get{
-            return point.hashValue
-        }
+
+    var hashValue: Int {
+        return point.hashValue
     }
 }
 
-class MapPin : NSObject, MKAnnotation {
+class MapPin: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
-    var depositionPoint : DepositionPointProtocol
+    var depositionPoint: DepositionPointProtocol
     var count = 0
     var needToAnimateOnAppearance = false
-    
-    override var hash: Int{
-        get{
-            return depositionPoint.hashValue
-        }
+
+    override var hash: Int {
+        return depositionPoint.hashValue
     }
-    
+
     init(depositionPoint: DepositionPointProtocol) {
-        self.coordinate = CLLocationCoordinate2D(latitude: Double(depositionPoint.location?.latitude ?? 0) , longitude: Double(depositionPoint.location?.longitude ?? 0))
+        coordinate = CLLocationCoordinate2D(latitude: Double(depositionPoint.location?.latitude ?? 0), longitude: Double(depositionPoint.location?.longitude ?? 0))
         self.depositionPoint = depositionPoint
-        
     }
 }

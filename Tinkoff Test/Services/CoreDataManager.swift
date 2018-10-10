@@ -6,46 +6,42 @@
 //  Copyright © 2018 mmalatsion. All rights reserved.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
-enum CoreDataManagerError : Error {
+enum CoreDataManagerError: Error {
     case stackNotReady
     case persistentContainerNotAvailable
-    case asyncFetchRequestError(error : Error)
+    case asyncFetchRequestError(error: Error)
 }
 
 protocol CoreDataManagerProtocol {
-    func raiseStack(success : @escaping () -> (), failure : ((Error) -> ())?)
-    func asyncFetch<T , C : CoreDataConvertable>(fetchRequest : NSFetchRequest<T>, converter : @escaping (T)->(C), result: @escaping ([C])->(), failure: ((CoreDataManagerError)->())?)
-    func perform(task : @escaping (NSManagedObjectContext)->(), failure : ((CoreDataManagerError) -> ())?)
-    
+    func raiseStack(success: @escaping () -> Void, failure: ((Error) -> Void)?)
+    func asyncFetch<T, C: CoreDataConvertable>(fetchRequest: NSFetchRequest<T>, converter: @escaping (T) -> C, result: @escaping ([C]) -> Void, failure: ((CoreDataManagerError) -> Void)?)
+    func perform(task: @escaping (NSManagedObjectContext) -> Void, failure: ((CoreDataManagerError) -> Void)?)
 }
 
-class CoreDataManager : CoreDataManagerProtocol{
-    
-    let modelName : String
-    var isReady : Bool
-    var persistentContainer : NSPersistentContainer?
-    
-    
-    required init(modelName : String){
+class CoreDataManager: CoreDataManagerProtocol {
+    let modelName: String
+    var isReady: Bool
+    var persistentContainer: NSPersistentContainer?
+
+    required init(modelName: String) {
         self.modelName = modelName
-        self.isReady = false
+        isReady = false
     }
-    
-    func raiseStack(success : @escaping () -> (), failure : ((Error) -> ())?){
-    
-        if self.isReady{
+
+    func raiseStack(success: @escaping () -> Void, failure: ((Error) -> Void)?) {
+        if isReady {
             success()
         }
-        
-        let persistentContainer = NSPersistentContainer(name : modelName)
-        
-        persistentContainer.loadPersistentStores{ stores, error in
+
+        let persistentContainer = NSPersistentContainer(name: modelName)
+
+        persistentContainer.loadPersistentStores { _, error in
             if let error = error {
                 failure?(error)
-            }else{
+            } else {
                 self.isReady = true
                 persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
                 self.persistentContainer = persistentContainer
@@ -53,9 +49,8 @@ class CoreDataManager : CoreDataManagerProtocol{
             }
         }
     }
-    
-    func asyncFetch<T , C : CoreDataConvertable>(fetchRequest : NSFetchRequest<T>, converter : @escaping (T)->(C), result: @escaping ([C])->(), failure: ((CoreDataManagerError)->())?){
-        
+
+    func asyncFetch<T, C: CoreDataConvertable>(fetchRequest: NSFetchRequest<T>, converter: @escaping (T) -> C, result: @escaping ([C]) -> Void, failure: ((CoreDataManagerError) -> Void)?) {
         guard let privateManagedObjectContext = self.persistentContainer?.newBackgroundContext() else {
             failure?(.persistentContainerNotAvailable)
             return
@@ -63,39 +58,37 @@ class CoreDataManager : CoreDataManagerProtocol{
         privateManagedObjectContext.automaticallyMergesChangesFromParent = true
         fetchRequest.returnsObjectsAsFaults = false
         let asynchronousFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { asynchronousFetchResult in
-            
+
             guard let finalResult = asynchronousFetchResult.finalResult else {
                 result([])
                 return
             }
-            
+
             let converted = finalResult.map { converter($0) }
-            
+
             DispatchQueue.main.async {
                 result(converted)
             }
         }
-        
+
         do {
             try privateManagedObjectContext.execute(asynchronousFetchRequest)
         } catch let error {
             failure?(.asyncFetchRequestError(error: error))
         }
     }
-    
-    func perform(task : @escaping (NSManagedObjectContext)->(), failure : ((CoreDataManagerError) -> ())?){
-        
-        if !isReady{
+
+    func perform(task: @escaping (NSManagedObjectContext) -> Void, failure: ((CoreDataManagerError) -> Void)?) {
+        if !isReady {
             failure?(.stackNotReady)
             return
         }
-        
-        guard let persistentContainer = self.persistentContainer else{
+
+        guard let persistentContainer = self.persistentContainer else {
             failure?(.persistentContainerNotAvailable)
             return
         }
-        
+
         persistentContainer.performBackgroundTask(task)
     }
-    
 }
