@@ -44,8 +44,15 @@ class MainMapViewController: UIViewController, MainMapViewInput {
             button!.setTitleColor(UIColor.black, for: .normal)
         }
 
-        mapView.setRegion(MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)), animated: true)
+        mapView.setRegion(MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)), animated: false)
         output.viewIsReady()
+        
+        let centerLat = mapView.centerCoordinate.latitude
+        let centerLon = mapView.centerCoordinate.longitude
+        let radius = mapView.currentRadius()
+        
+        output.userDidChangeMapConfiguration(lat: centerLat, lon: centerLon, radius: radius)
+        
     }
 
     override func viewWillLayoutSubviews() {

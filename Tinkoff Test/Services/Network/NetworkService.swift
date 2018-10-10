@@ -111,13 +111,16 @@ class NetworkService: NetworkFetcherProtocol {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss z"
                     if let serverDate = dateFormatter.date(from: dateString) {
+//                        print("\(date) -- \(serverDate) -- \(serverDate > date)")
                         shouldLoadBlock(serverDate > date)
                     } else {
+//                        print("FAILED TO PARSE")
                         shouldLoadBlock(true)
                     }
                 }
+            }else{
+                shouldLoadBlock(true)
             }
-            shouldLoadBlock(true)
 
         }).resume()
     }
