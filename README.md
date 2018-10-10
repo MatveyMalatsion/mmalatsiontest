@@ -3,9 +3,9 @@ Test work
 
 M Malatsion - madway94@yandex.ru/ +79046718980
 
-![Implementation](http://b.radikal.ru/b03/1810/5f/f86b976474d2.gif)
+![Implementation](https://media.giphy.com/media/3Gle9wlyGtvQx08Ew6/giphy.gif)
 
-##Known issues:
+### Known issues:
 * Annotation diffing is removed couse of random crashes which I did not have time to fix
 * The code is poorly documented
 * Minor annotation clustering issues when two points have same location
