@@ -3,7 +3,7 @@ Test work
 
 M Malatsion - madway94@yandex.ru/ +79046718980
 
-![Implementation](https://media.giphy.com/media/3Gle9wlyGtvQx08Ew6/giphy.gif)
+![Implementation](https://github.com/MatveyMalatsion/mmalatsiontest/blob/master/demoGif.gif?raw=true)
 
 ### Known issues:
 * Annotation diffing is removed couse of random crashes which I did not have time to fix
