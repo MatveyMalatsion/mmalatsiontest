@@ -242,10 +242,6 @@ class CoordinateTreeNode {
                     locations.append(result.data)
                 })
 
-                locations = locations.sorted(by: { e1, e2 in
-                    e1.hashValue > e2.hashValue
-                })
-
                 if count == 1 {
                     let coordinate = CLLocationCoordinate2D(latitude: totalX, longitude: totalY)
                     let annotation = MapPin(depositionPoint: locations.last!)
