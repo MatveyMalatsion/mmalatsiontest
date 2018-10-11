@@ -188,7 +188,9 @@ class LocalDepositionPointsStorage: DepositionPointsStorageCacherProtocol {
                     }
                 }
             } catch let err {
-                failure(err)
+                DispatchQueue.main.async {
+                    failure(err)
+                }
             }
         }
     }
@@ -229,6 +231,10 @@ class LocalDepositionPointsStorage: DepositionPointsStorageCacherProtocol {
                             success(nil, date)
                         }
                     }
+                }else{
+                    DispatchQueue.main.async {
+                        failure(NSError(domain: "Cache service", code: 0, userInfo: ["result" : "No such image"]))
+                    }
                 }
             } catch let err {
                 DispatchQueue.main.async {
@@ -242,4 +248,5 @@ class LocalDepositionPointsStorage: DepositionPointsStorageCacherProtocol {
         getDepositionPoints(location: location, radius: radius, partners: partners, success: success, failure: failure)
     }
 }
+
 

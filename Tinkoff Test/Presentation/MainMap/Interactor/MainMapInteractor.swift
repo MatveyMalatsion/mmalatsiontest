@@ -55,18 +55,9 @@ class MainMapInteractor: MainMapInteractorInput {
 
     func getImage(for partner: PartnerProtocol, cached: @escaping (UIImage) -> Void, completion: @escaping (UIImage) -> Void) {
         if let name = partner.picture {
-            print(name)
-            dataStorage.getCachedImage(name: name, resolution: ImagesHelper().getResolutionTypeForCurrentScreen(), success: { img, _ in
-                if let image = img {
-                    cached(image)
-                }
-            }, failure: { _ in
-//                print(err)
-                // Nothing for now
-            })
-
-            if Reachability.isConnectedToNetwork() {
-                dataStorage.downloadImage(name: name, cacheDate: Date(), resolution: ImagesHelper().getResolutionTypeForCurrentScreen(), success: { img, _ in
+            
+            let loadBlock : (Date?) -> Void = { date in
+                self.dataStorage.downloadImage(name: name, cacheDate: date, resolution: ImagesHelper().getResolutionTypeForCurrentScreen(), success: { img, _ in
                     DispatchQueue.main.async {
                         if let image = img {
                             completion(image)
@@ -77,6 +68,18 @@ class MainMapInteractor: MainMapInteractorInput {
                     // Nothing for now
                 })
             }
+            
+            print(name)
+            dataStorage.getCachedImage(name: name, resolution: ImagesHelper().getResolutionTypeForCurrentScreen(), success: { img, date in
+                if let image = img {
+                    cached(image)
+                }
+                
+                loadBlock(date)
+            }, failure: { _ in
+                loadBlock(nil)
+            })
+            
         }
     }
 }

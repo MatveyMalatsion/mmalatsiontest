@@ -72,7 +72,7 @@ class MainMapViewController: UIViewController, MainMapViewInput {
     }
 
     func update(annotations: [MapPin]) {
-        var before = NSMutableSet(array: mapView.annotations)
+        let before = NSMutableSet(array: mapView.annotations)
         before.remove(mapView.userLocation)
 //
 //        before = NSMutableSet(array: before.compactMap{$0 as? MapPin}.compactMap{ PointHashableWrapper(point: $0.depositionPoint, annotation: $0)} )
@@ -166,7 +166,16 @@ extension MainMapViewController {
     }
 
     func tree(from locations: [DepositionPointProtocol]) -> QuadTreeNode<DepositionPointProtocol> {
-        let wordBox = BoundingBox(x0: 0, y0: -166, xf: 200, yf: 100)
+        let mapRect = MKMapRect.world
+        let topLeft = mapRect.origin.coordinate
+        let botRight = MKMapPoint(x: mapRect.maxX, y: mapRect.maxY).coordinate
+        let minLat = botRight.latitude
+        let maxLat = topLeft.latitude
+        let minLon = topLeft.longitude
+        let maxLon = botRight.longitude
+
+        
+        let wordBox = BoundingBox(x0: minLat, y0: minLon, xf: maxLat, yf: maxLon)
         return QuadTreeNode(data: locations.compactMap { node(from: $0) }, box: wordBox, capacity: 4)
     }
 }

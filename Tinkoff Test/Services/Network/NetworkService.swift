@@ -88,10 +88,12 @@ class NetworkService: NetworkFetcherProtocol {
 
         URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, _, error in
             if error != nil {
+                print("Fail : \(name)")
                 failure(error)
             } else {
                 if let data = data {
                     DispatchQueue.main.async {
+                        print("Success : \(name)")
                         success(UIImage(data: data), Date())
                     }
                 }
@@ -111,10 +113,10 @@ class NetworkService: NetworkFetcherProtocol {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss z"
                     if let serverDate = dateFormatter.date(from: dateString) {
-//                        print("\(date) -- \(serverDate) -- \(serverDate > date)")
+                        print("\(date) -- \(serverDate) -- \(serverDate > date)")
                         shouldLoadBlock(serverDate > date)
                     } else {
-//                        print("FAILED TO PARSE")
+                        print("FAILED TO PARSE")
                         shouldLoadBlock(true)
                     }
                 }
